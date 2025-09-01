@@ -1,0 +1,21 @@
+# Caddyfile template for HTTPS reverse proxy
+# Listens on your-domain.com:4200 and proxies to Vite (localhost:3020)
+
+{
+  # Global options
+  email you@example.com
+
+  log {
+    output stdout
+    format console
+    level INFO
+  }
+}
+
+your-domain.com:4200 {
+  tls /path/to/cert.pem /path/to/key.pem
+  reverse_proxy http://127.0.0.1:3020
+}
+
+
+
